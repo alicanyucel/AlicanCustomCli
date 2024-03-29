@@ -12,6 +12,14 @@ const argv = yargs
             alias: 'n'
         }
     })
+    .command("new", "create a new project", {
+        "name": {
+            describe: "File Name",
+            demandOption: true,
+            type: "string",
+            alias: 'n'
+        }
+    })
     .command("build", "build cli")
     .help()
     .argv as { [key: string]: unknown, _: string[] }
@@ -34,4 +42,15 @@ if (argv._.includes("build")) {
         console.log(`stderr:${stderr}`);
 
     });
+    if (argv._.includes("new")) {
+        const projectName = argv.name;
+        exec(`git clone https://github.com/TanerSaydam/SmartEnum.git ${projectName} `, (error, stdout, stderr) => {
+            if (error) {
+                console.error("Error:${stdout}")
+            }
+            console.log(`stdout:${stdout}`)
+            console.log(`stderr:${stderr}`)
+
+        });
+    }
 }
