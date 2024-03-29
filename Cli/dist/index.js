@@ -48,7 +48,7 @@ if (argv._.includes("build")) {
     });
     if (argv._.includes("new")) {
         const projectName = argv.name;
-        (0, child_process_1.exec)(`git clone https://github.com/TanerSaydam/SmartEnum.git ${projectName} `, (error, stdout, stderr) => {
+        (0, child_process_1.exec)(`git clone https://github.com/alicanyucel/AlpataBackEnd ${projectName} `, (error, stdout, stderr) => {
             if (error) {
                 console.error("Error:${stdout}");
             }
